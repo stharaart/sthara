@@ -63,3 +63,18 @@ function scrollToSection( section_id ){
         }, 1000);
     }
 }
+
+jQuery(document).ready(function($) {
+    $('body').on('click', '.flush-it', function(event) {
+        $.ajax ({
+            url     : perfect_portfolio_cdata.ajax_url,  
+            type    : 'post',
+            data    : 'action=flush_local_google_fonts',    
+            nonce   : perfect_portfolio_cdata.nonce,
+            success : function(results){
+                //results can be appended in needed
+                $( '.flush-it' ).val(perfect_portfolio_cdata.flushit);
+            },
+        });
+    });
+});
